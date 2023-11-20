@@ -3,7 +3,7 @@ const User = require("../Model/User");
 
 router.post("/login", async (req, res) => {
   try {
-    const user = await User.findOne({ username: req.body.username ,password:req.body.password});
+    const user = await User.findOne({ username: req.body.username,password:req.body.password});
     
     if (!user) {
       res.status(400).json("Wrong Credentials !");
@@ -16,7 +16,10 @@ router.post("/login", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+router.get("/",async(req,res)=>{
+    const users = await User.find({});
+    res.json(users);
+})
 router.post("/register", async (req, res) => {
   try {
     const formerUser = await User.findOne({ username: req.body.username });
