@@ -18,6 +18,12 @@ const UserSchema  = new mongoose.Schema({
     },
     following:{
         type:Number
+    },
+    profilePic:{
+        type:String
+    },
+    coverPic:{
+        type:String
     }
 
 })
